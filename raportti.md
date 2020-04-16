@@ -79,3 +79,14 @@ Näköjään git blame ainakin vaatii tiedostonimen parametriksi. Kokeillaan sii
 
 	git blame raportti.md
 
+Se näytti meille kaikki muutokset mitä olin tehnyt raportti.md, kuka ne teki, ja milloin. 
+Vaikuttaa ihan hyödylliseltä tiedostojen muokkaajien selvittämiseksi. Myös komennon nimen
+mukaisesti tällä voi syyttää jotain toista henkilö mikäli he tekevät huonoja muutoksia jotka
+rikkoo softan :)
+
+<br>
+<br>
+
+#### Tässä kohtaa pitää tehdä git reset --hard tyhmien muutosten jälkeen. 
+
+Turhaa spammia tähän:
