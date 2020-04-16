@@ -113,4 +113,31 @@ Teen /srv/salt/ uuden kansion nimeltä terminator ja teen sen sisälle init.sls 
 
 <br>
 
+Seuraavaksi liikutaan top.sls /srv/salt kansiossa ja lisätään sinne vielä 
+toiselle orjalle tämä moduuli. Top.sls näyttää about tältä tässä kohtaa:
 
+	base:
+	  'papunorja':
+	    - terminator
+
+<br>
+
+Sitten vedetään vain sudo salt '*' state.apply ja pääsemme asentamaan terminatorin.
+Tämän jälkeen meidän pitäisi keksiä miten terminatorin terminaalin backgroundin värin voi muuttaa. 
+
+Terminaatorista voi muokkaa terminaalin background color right clikkaamalla ja sitten
+preferences -> sieltä voi löytää asetukset terminaalin background värille. Muokataan niitä,
+ja katotaan mitä tiedostoja muuttuu:
+
+	find -printf '%T+ %p\n' | sort
+ 
+<br>
+
+Komento siis näyttää viimeiseksi muokattuja tiedostoja. Näemme että olemme muokanneet tiedostoa
+./.config/terminator/config . Kuulostaa mielenkiintoiselta. Käydään katsomassa mitä siellä tapahtuu. 
+
+<br>
+
+Tiedostossa lukee lähinnä background värien rbg koodeja jotka kuvaa siis mitä väriä ne ovat. 
+Voimme siis näitä muokkaamalla vaihtaa kyseistä väriä. Meillä on profiili [default] ja siinä
+on background colorin väri kerrottu. 
