@@ -1,6 +1,6 @@
 # Tämän viikon raportti läksyistä!
 
-b) git log --patch antaa meille seuraavan:
+#### b) git log --patch antaa meille seuraavan:
 
 <br>
 <br>
@@ -68,4 +68,14 @@ index cf63d53..1d7a5e5 100644
 <br>
 <br>
 
-#### Ainakin komento ihan perusteeltaan näyttää vain ne muutokset mitä ei olla vielä lisätty.
+#### Ainakin komento ihan itsenään ilman parametrejä näyttää vain ne muutokset mitä ei olla vielä lisätty.
+
+<br>
+
+git blame on viimeinen kohta. Kokeillana ensin sitä suoraan ilman parametrejä: 
+
+Ei onnistu. Komento vaatii parametrit. Tutkitaan sitten että mitä. 
+Näköjään git blame ainakin vaatii tiedostonimen parametriksi. Kokeillaan siis
+
+	git blame raportti.md
+
