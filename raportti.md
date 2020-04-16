@@ -35,4 +35,23 @@ index 0000000..f288702
 
 Seuraavaksi mietitään vaikka mitä git diff tekee, ja mitä voimme tehdä sen avulla. 
 Dokumentaation perusteella se on komento joka näyttää erot committejen välillä. 
+Poistuin hetkellisesti muokkaamasta tätä dokumenttia ja käytin heti git diff:
+se näytti meille ne muutokset mitä olin tehnyt juuri tähän tiedostoon joita en ollut vielä
+lisännyt 
+	git add . 
+avulla. Saimme tälläisen outputin:
 
+	git diff
+diff --git a/raportti.md b/raportti.md
+index cf63d53..1d7a5e5 100644
+--- a/raportti.md
++++ b/raportti.md
+@@ -33,3 +33,6 @@ index 0000000..f288702
+ @@ -0,0 +1,674 @@
+ :
+ 
++Seuraavaksi mietitään vaikka mitä git diff tekee, ja mitä voimme tehdä sen avulla. 
++Dokumentaation perusteella se on komento joka näyttää erot committejen välillä. 
++
+ 
+Ainakin komento ihan perusteeltaan näyttää vain ne muutokset mitä ei olla vielä lisätty.
