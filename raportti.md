@@ -102,3 +102,15 @@ Tällä siis saa kaiken mikä on tehty ennen committia katoamaan.
 <br>
 
 #### d) Uusi salt-moduuli. Tässä kohtaa pitää asentaa taas uusi ohjelma ja tehdä asetuksia sille. 
+
+<br>
+
+Päätin asentaa terminatorin ja vaihtaa sen default backgroundinvärin joksikin muuksi. 
+Teen /srv/salt/ uuden kansion nimeltä terminator ja teen sen sisälle init.sls tiedoston. Sen sisälle kirjoitan:
+
+	terminator:
+	  pkg.installed
+
+<br>
+
+
