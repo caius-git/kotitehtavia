@@ -90,3 +90,11 @@ rikkoo softan :)
 #### Tässä kohtaa pitää tehdä git reset --hard tyhmien muutosten jälkeen. 
 
 Turhaa spammia tähän:
+
+<br>
+
+No, en ollut ihan varma miten tulokset pitäisi demota mutta laitoin tuohon turhaa spammia alle 
+kaikenmaailman sotkua, tein jopa git add . ja sitten kirjoitin git reset --hard, ja kaikki spam 
+katosi vaikka olin ehtinyt kirjoittaa git add . Mikään ennen tätä ei kuitenkaan kadonnut. 
+
+
