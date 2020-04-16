@@ -96,5 +96,9 @@ Turhaa spammia tähän:
 No, en ollut ihan varma miten tulokset pitäisi demota mutta laitoin tuohon turhaa spammia alle 
 kaikenmaailman sotkua, tein jopa git add . ja sitten kirjoitin git reset --hard, ja kaikki spam 
 katosi vaikka olin ehtinyt kirjoittaa git add . Mikään ennen tätä ei kuitenkaan kadonnut. 
+Tällä siis saa kaiken mikä on tehty ennen committia katoamaan. 
 
+<br>
+<br>
 
+#### d) Uusi salt-moduuli. Tässä kohtaa pitää asentaa taas uusi ohjelma ja tehdä asetuksia sille. 
