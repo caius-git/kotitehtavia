@@ -33,3 +33,6 @@ index 0000000..f288702
 @@ -0,0 +1,674 @@
 :
 
+Seuraavaksi mietitään vaikka mitä git diff tekee, ja mitä voimme tehdä sen avulla. 
+Dokumentaation perusteella se on komento joka näyttää erot committejen välillä. 
+
