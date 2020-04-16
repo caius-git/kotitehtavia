@@ -2,7 +2,8 @@
 
 b) git log --patch antaa meille seuraavan:
 
-
+<br>
+<br>
 
 git log --patch
 commit 2becc898b2eec927fd76908265d2786dadf05e2c (HEAD -> master)
@@ -35,6 +36,9 @@ index 0000000..f288702
 @@ -0,0 +1,674 @@
 :
 
+<br>
+<br>
+
 Seuraavaksi mietitään vaikka mitä git diff tekee, ja mitä voimme tehdä sen avulla. 
 Dokumentaation perusteella se on komento joka näyttää erot committejen välillä. 
 Poistuin hetkellisesti muokkaamasta tätä dokumenttia ja käytin heti git diff:
@@ -45,7 +49,8 @@ lisännyt
 
 avulla. Saimme tälläisen outputin:
 
-
+<br>
+<br>
 
 git diff
 diff --git a/raportti.md b/raportti.md
@@ -60,6 +65,7 @@ index cf63d53..1d7a5e5 100644
 +Dokumentaation perusteella se on komento joka näyttää erot committejen välillä. 
 +
  
-
+<br>
+<br>
 
 #### Ainakin komento ihan perusteeltaan näyttää vain ne muutokset mitä ei olla vielä lisätty.
