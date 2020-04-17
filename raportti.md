@@ -161,3 +161,27 @@ juostuna config filen kansiosta, eli ./.config/terminator/
 <br>
 
 
+Joudumme vielä muokkaamaan init.sls tiedostoa /srv/salt/terminator jotta voimme varmistaa että
+tämä uusi tiedosto tulee orjillemme sinne minne haluamme sen. Käytämme tähän file.managed. Tältä 
+näyttää uusi init.sls: 
+
+<br>
+
+	terminator:
+	  pkg.installed
+	terminator_config:
+	  file.managed:
+	    - names:
+	      - /etc/skel/.config/terminator/config 
+	      - /home/papu/.config/terminator/config 
+	    - source: salt://terminator/config
+
+<br>
+
+Varmistetaan että toimii ensin. Vaihdan /srv/salt/terminator/config vielä niin, että background
+color on oikeasti violetti. Käytän värikoodia A233FF tätä varten. Sitten pistetään vain 
+
+	sudo salt '*' state.apply 
+
+ja katsotaan mitä tapahtuu. 
+
