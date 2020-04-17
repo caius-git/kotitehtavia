@@ -185,3 +185,39 @@ color on oikeasti violetti. Käytän värikoodia A233FF tätä varten. Sitten pi
 
 ja katsotaan mitä tapahtuu. 
 
+<br>
+
+Muutokset eivät onnistuneet, ja tajusin kyllä heti miksi: eihän meidän koneella ole 
+/home/papu directoryä! Tämän takiahan se ei toimi koska ei se löydä kyseistä tiedostoa. 
+Hieman hämmentyneempi olen siitä että minkä takia se valittaa että /etc/skel parent directory 
+ei ole olemassa. Tämänhän oli tarkoitus luoda sinne uudet kansiot! Menin hieman salt dokumentaatio
+läpi, ja tajusin että eihän file.managed sitä tee, vaan tarvitsemme uuden kohdan tiedostoon 
+file.directory:
+
+<br>
+
+Tehdäänpä uudet muutokset /srv/salt/terminator/init.sls ja katsotaan mitä tapahtuu: 
+
+	terminator:
+	  pkg.installed
+
+	/etc/skel/.config/terminator/:
+	  file.directory:
+	    - makedirs: True
+
+	terminator_config:
+	  file.managed:
+	    - name: 
+	      - /etc/skel/.config/terminator/config
+	    - source: salt://terminator/config
+
+
+<br>
+
+Tässä siis poistin ensinnäkin /home/papu/ init.sls ja siirrän sen kohta jonnekkin muualle, 
+ja kerroin samalla saltille että se loisi uuden directoryn /etc/skel tuolla fire.directory toiminnon
+avulla. Kokeillaan nyt toimiiko 
+
+	sudo salt '*' state.apply
+
+avulla. 
