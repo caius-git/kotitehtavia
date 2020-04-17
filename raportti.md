@@ -138,6 +138,26 @@ Komento siis näyttää viimeiseksi muokattuja tiedostoja. Näemme että olemme 
 
 <br>
 
-Tiedostossa lukee lähinnä background värien rbg koodeja jotka kuvaa siis mitä väriä ne ovat. 
+Tiedostossa lukee lähinnä background värien hex koodeja jotka kuvaa siis mitä väriä ne ovat. 
 Voimme siis näitä muokkaamalla vaihtaa kyseistä väriä. Meillä on profiili [default] ja siinä
 on background colorin väri kerrottu. 
+
+Vaihoin terminaalin background väriä siniseksi, ja se toimi. Olemme siis pystyneet nyt todentamaaan,
+että asetusten muokkaaminen config filessä myös oikeasti toimii. Meidän viimeinen ongelma on siinä,
+että config filet terminaattoriin sijaitsevat käyttäjän home directoryssä. Ajattelin hieman
+ohittaa tämän vaiheen tekemällä niin, että vaihamme etäorjan asetuksia manuaalisesti (etäorja on yksi
+orjistani tässä ympäristössä, sen home directory /home/papu) ja laitamme asetukset myös /etc/skel
+uusia käyttäjiä varten. 
+
+Meidän pitää kuitenkin vielä kopioida nämä asetukset. Vaihdan ihan vain testimielessä terminatorin
+backcgroundia uudestaan vaikka tällä kertaa vihreäksi, ja käytän limenvihreää eli värikoodia
+9CFF33. Tämän jälkeen voimme kopioida config filen /srv/salt/terminator ja käyttää sitä sieltä.
+Tämä onnistuu komennolla
+
+	sudo cp config /srv/salt/terminator
+
+juostuna config filen kansiosta, eli ./.config/terminator/
+
+<br>
+
+
