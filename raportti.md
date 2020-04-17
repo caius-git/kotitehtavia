@@ -221,3 +221,69 @@ avulla. Kokeillaan nyt toimiiko
 	sudo salt '*' state.apply
 
 avulla. 
+
+<br>
+
+Melkein onnistui. Jos katsomme init.sls, huomaamme että siellä on pieni typo name:
+kohdalla. Näiden pitäisi olla samalla rivillä. Muokataan tätä riviä näin:
+
+	- name: /etc/skel/.config/terminator/config
+
+ja katsotaan toimiiko se nyt. State apply uudestaan.
+
+<br>
+
+ Tällä kertaa salt ei kohdannut ongelmia,
+joten tarkastetaan vielä tulokset. Ensinnäkin, /etc/skel/.config/terminator/config on nyt olemassa,
+ja siellä on oikeat asetukset eli ne mitkä säädin. Seuraavaksi meidän pitää vain tehdä uusi
+init.sls ihan vain etäorjaamme varten, jossa siis myös spesifioimme tuon home directory configin.
+
+<br>
+
+Minun on kyllä pakko myöntää, että en tykkää siitä että config filet sijaitsevat ihmisten home directoryissä.
+Niitä on huomattavasti vaikeampi muokata niin että kaikki orjat saavat oikeat conf tiedostot. 
+/etc/skel ratkaisee ongelman osittain, mutta se ei muokkaa ennestään olevien käyttäjien config.
+tiedostoja. Luin kuitenkin myös jotain sellaisesta kuin $XDG_CONFIG_HOME/terminator pathista
+terminatorin dokumentaatiossa, joten koitan vielä käyttää sitä file pathina ihan vain testinä. Mikäli
+tämä ei toimi teen sen niinkuin ajattelin alussa. Lisäsin seuraavan tiedostooni, ihan vain testiksi:
+
+	testi_config:
+	  file.managed:
+	    - name: $XDG_CONFIG_HOME/terminator/config
+	    - source: salt://terminator/config
+ 
+<br>
+
+Katsotaan mitä tapahtuu. Mikäli tämä toimii, ratkaisee se ongelmani. Ikävä kyllä, salt sanoo
+että tämä ei ole absoluuttinen polku, joten se ei käy. Tätä odotinkin. Poistetaan tämä ja tehdään niinkuin ajattelin normaalisti. 
+
+<br>
+
+Muokkasin vain init.sls hieman, eli lisäsin /home/papu sinne uudestaan. Muokkaan nyt sen vain top filestä
+niin, että tämä init.sls pätee ainoastaan tähän oikeaan koneeseen. Joku IF statement olisi tässä 
+varmaan ihan OK myös. Luin jotain dokumentaatio siitä ja vaikutti vähän turhan monimutkaiselta tässä
+vaiheessa. Aika kuitenkin kokeilla toimiiko tämä meidän toisella orjalla, jolle ei olla vielä
+edes asennettu terminaattoria. Muokkasin top filestä niin että tälle orjalle annetaan terminator
+state. Nyt vain state.apply ja katsotaan mitä tapahtuu: 
+
+<br>
+
+Mahdollinen uusi ongelma löydetty? Terminator ei luonut asennuksen yhteydessä orjalle .config/terminator/config
+kansiota. Sinänsä sillä ei ole väliä, sillä voimme vain käyttää aiemmin opimaamme file.directory. 
+Muokataan init.sls tiedostoa näin:
+
+	/home/papu/.config/terminator/:
+	  file.directory: 
+	    - makedirs: True
+
+Kokeillaan uudestaan state.apply. 
+
+<br>
+
+Kaikki onnistui, ja salt myös loi config tiedoston meille. Saimme ihanan vihreän limen terminaalimme
+backgroundiksi (en suosittele tätä värikoodia). Tässä olemme siis nyt pystyneet muokkaamaaan
+terminator ohjelmaa niin, että saamme jokaiselle käyttäjällä limenvihreän terminator backgroundin
+tahtoessamme. 
+
+Caius Juvonen 2020
+
