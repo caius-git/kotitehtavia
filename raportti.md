@@ -1,6 +1,11 @@
 # Tämän viikon raportti läksyistä!
 
-#### b) git log --patch antaa meille seuraavan:
+## a) Tässä siis raportti markdownina kirjoitettu ja git-hubiin laittettuna! Gittiä käytetty koko tehtävän ajan.
+
+<br>
+<br>
+
+## b) git log --patch antaa meille seuraavan:
 
 <br>
 <br>
@@ -93,7 +98,7 @@ rikkoo softan :)
 <br>
 <br>
 
-#### Tässä kohtaa pitää tehdä git reset --hard tyhmien muutosten jälkeen. 
+## c)  Tässä kohtaa pitää tehdä git reset --hard tyhmien muutosten jälkeen. 
 
 Turhaa spammia tähän:
 
@@ -107,7 +112,7 @@ Tällä siis saa kaiken mikä on tehty ennen committia katoamaan.
 <br>
 <br>
 
-#### d) Uusi salt-moduuli. Tässä kohtaa pitää asentaa taas uusi ohjelma ja tehdä asetuksia sille. 
+## d) Uusi salt-moduuli. Tässä kohtaa pitää asentaa taas uusi ohjelma ja tehdä asetuksia sille. 
 
 <br>
 
