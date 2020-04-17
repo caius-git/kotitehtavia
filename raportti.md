@@ -38,10 +38,12 @@
 
 <br>
 <br>
+
 Tämä siis näyttää eri "patcheja" mitä meillä on ollut, eli mitä ollaan committattu. Hyvä
 muutosten seuraamiseen.
 
 <br>
+
 
 Seuraavaksi mietitään vaikka mitä git diff tekee, ja mitä voimme tehdä sen avulla. 
 Dokumentaation perusteella se on komento joka näyttää erot committejen välillä. 
